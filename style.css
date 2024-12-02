@@ -11,10 +11,13 @@ body{
 }
 .container{
     background-color: white;
-    padding: 2rem;
+    padding: 2rem 2rem 0 2rem;
     border-radius: 1rem;
     min-height: 45vh;
-    width: 40vh;
+    min-width: 50vh;
+}
+h2{
+    margin-bottom: 1rem;
 }
 form select,
 input,
@@ -36,9 +39,43 @@ form input {
     margin-top: 2rem;
     justify-content: space-between;
     align-items: center;
+  
 
 
 }
+.dropdown i{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
 .select-container img{
-    width: 2rem;
+    max-width: 1.5rem;
+    
+}
+.select-container{
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    border: 1px solid lightgray;
+    border-radius: .5rem;
+}
+.select-container select{
+    width: auto;
+    font-size: .85rem;
+
+}
+.msg{
+    margin: 2rem 0 2rem 0;
+    font-size: 1.15rem;
+}
+
+form button{
+    
+    background-color: #af4d98;
+    height: 2.5rem;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
 }
