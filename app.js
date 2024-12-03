@@ -1,5 +1,7 @@
-const BASE_URL="https://latest.currency-api.pages.dev/v1/currencies/eur.json";
+const baseUrl="https://latest.currency-api.pages.dev/v1/currencies";
 const dropdowns=document.querySelectorAll(".dropdown select");
+const btn = document.querySelector("form button")
+const json = {};
 
 for (let select of dropdowns){
 
@@ -17,4 +19,43 @@ for (let select of dropdowns){
             
         }
     }
+    select.addEventListener('change',(evt)=>{
+        updateFlag(evt.target);
+    })
 }
+
+let updateFlag = (element)=> {
+    let currCode = element.value;
+    let countryCode = countryList[currCode];
+    let newSrc =`https://flagsapi.com/${countryCode}/flat/64.png`;
+    let img = element.parentElement.querySelector("img");
+    img.src=newSrc;
+
+}
+async function getData() {
+    const url = `${baseUrl}/`
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+  
+      json = await response.json();
+      console.log(json);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+  
+
+btn.addEventListener("click",(evt)=>{
+    evt.preventDefault();
+    let amount= document.querySelector(".amount input")
+    let amtVal=amount.value;
+    if(amtVal==="" || amtVal<1){
+        amtVal=1;
+        amount.value="1"
+    }
+    
+
+})
